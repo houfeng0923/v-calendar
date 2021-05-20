@@ -12,6 +12,10 @@
   display: grid;
 }
 
+.vc-bordered {
+  border-top: 1px solid var(--gray-400);
+}
+
 .vc-arrow {
   display: flex;
   justify-content: center;

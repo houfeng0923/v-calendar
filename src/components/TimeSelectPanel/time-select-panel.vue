@@ -36,10 +36,12 @@ export default {
     up() {
       const size = this.options.length;
       this.current = this.current === 0 ? size - 1 : this.current - 1;
+      this.$emit('update:modelValue', this.current);
     },
     down() {
       const size = this.options.length;
       this.current = this.current === size - 1 ? 0 : this.current + 1;
+      this.$emit('update:modelValue', this.current);
     },
   },
 };

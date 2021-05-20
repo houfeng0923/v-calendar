@@ -69,7 +69,9 @@ export default {
       const parts = this.isRange ? this.dateParts : [this.dateParts[0]];
       return h(
         'div',
-        {},
+        {
+          class: [{ 'vc-bordered': !this.isTime }],
+        },
         {
           ...this.$slots,
           default: () =>
@@ -80,7 +82,6 @@ export default {
                 theme: this.$theme,
                 is24hr: this.is24hr,
                 minuteIncrement: this.minuteIncrement,
-                showBorder: !this.isTime,
                 isDisabled: (this.isDateTime && !dp.isValid) || this.isDragging,
                 'onUpdate:modelValue': p => this.onTimeInput(p, idx === 0),
               }),

@@ -1,13 +1,14 @@
+
 .vc-time-picker {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   padding: 8px;
   &.vc-invalid {
     pointer-events: none;
     opacity: 0.5;
   }
-  &.vc-bordered {
-    border-top: 1px solid var(--gray-400);
+  & + .vc-time-picker {
+    margin-left: 10px;
   }
 }
 

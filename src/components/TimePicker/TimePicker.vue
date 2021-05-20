@@ -1,59 +1,10 @@
 <template>
-  <div
-    class="vc-time-picker"
-    :class="[{ 'vc-invalid': !modelValue.isValid, 'vc-bordered': showBorder }]"
-  >
-    <!-- <div>
-      <svg
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        class="vc-time-icon"
-        stroke="currentColor"
-      >
-        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    </div> -->
+  <div class="vc-time-picker" :class="[{ 'vc-invalid': !modelValue.isValid }]">
     <div class="vc-time-content">
-      <!-- <div v-if="date" class="vc-time-date">
-        <span class="vc-time-weekday">
-          {{ locale.format(date, 'WWW') }}
-        </span>
-        <span class="vc-time-month">
-          {{ locale.format(date, 'MMM') }}
-        </span>
-        <span class="vc-time-day">
-          {{ locale.format(date, 'D') }}
-        </span>
-        <span class="vc-time-year">
-          {{ locale.format(date, 'YYYY') }}
-        </span>
-      </div> -->
       <div class="vc-time-select">
         <time-select-panel v-model.number="hours" :options="hourOptions" />
-        <span style="margin: 0 4px">:</span>
+        <span>:</span>
         <time-select-panel v-model.number="minutes" :options="minuteOptions" />
-        <!-- <time-select v-model.number="hours" :options="hourOptions" />
-        <span style="margin: 0 4px">:</span>
-        <time-select v-model.number="minutes" :options="minuteOptions" />
-        <div v-if="!is24hr" class="vc-am-pm">
-          <button
-            :class="{ active: isAM }"
-            @click.prevent="isAM = true"
-            type="button"
-          >
-            AM
-          </button>
-          <button
-            :class="{ active: !isAM }"
-            @click.prevent="isAM = false"
-            type="button"
-          >
-            PM
-          </button>
-        </div> -->
       </div>
     </div>
   </div>
@@ -73,7 +24,6 @@ export default {
     theme: { type: Object, required: true },
     is24hr: { type: Boolean, default: true },
     minuteIncrement: { type: Number, default: 1 },
-    showBorder: Boolean,
   },
   data() {
     return {
