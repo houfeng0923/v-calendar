@@ -3,7 +3,7 @@
     class="vc-time-picker"
     :class="[{ 'vc-invalid': !modelValue.isValid, 'vc-bordered': showBorder }]"
   >
-    <div>
+    <!-- <div>
       <svg
         fill="none"
         stroke-linecap="round"
@@ -15,9 +15,9 @@
       >
         <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
-    </div>
+    </div> -->
     <div class="vc-time-content">
-      <div v-if="date" class="vc-time-date">
+      <!-- <div v-if="date" class="vc-time-date">
         <span class="vc-time-weekday">
           {{ locale.format(date, 'WWW') }}
         </span>
@@ -30,9 +30,12 @@
         <span class="vc-time-year">
           {{ locale.format(date, 'YYYY') }}
         </span>
-      </div>
+      </div> -->
       <div class="vc-time-select">
-        <time-select v-model.number="hours" :options="hourOptions" />
+        <time-select-panel v-model.number="hours" :options="hourOptions" />
+        <span style="margin: 0 4px">:</span>
+        <time-select-panel v-model.number="minutes" :options="minuteOptions" />
+        <!-- <time-select v-model.number="hours" :options="hourOptions" />
         <span style="margin: 0 4px">:</span>
         <time-select v-model.number="minutes" :options="minuteOptions" />
         <div v-if="!is24hr" class="vc-am-pm">
@@ -50,19 +53,19 @@
           >
             PM
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import TimeSelect from '../TimeSelect/TimeSelect.vue';
+import TimeSelectPanel from '../TimeSelectPanel/time-select-panel.vue';
 import { pad } from '../../utils/helpers';
 
 export default {
   name: 'TimePicker',
-  components: { TimeSelect },
+  components: { TimeSelectPanel },
   emits: ['update:modelValue'],
   props: {
     modelValue: { type: Object, required: true },

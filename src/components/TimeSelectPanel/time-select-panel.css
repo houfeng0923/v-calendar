@@ -1,0 +1,50 @@
+
+.vc-time-select-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.vc-time-select-panel .vc-time-up,
+.vc-time-select-panel .vc-time-down {
+}
+
+.vc-time-select-panel .vc-time-up svg {
+  transform-origin: center;
+
+  transform: rotate(-90deg);
+}
+
+.vc-time-select-panel .vc-time-down svg {
+  transform-origin: center;
+
+  transform: rotate(90deg);
+}
+
+.vc-time-select-panel .vc-time-current {
+  flex: 1;
+  min-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  padding: 3px 5px;
+  border-radius: var(--rounded);
+  &:hover {
+    background: var(--gray-200);
+  }
+}
+
+
+.vc-is-dark {
+
+  & .vc-time-select-panel .vc-time-current {
+    flex: 1;
+    min-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    padding: 3px 5px;
+    border-radius: var(--rounded);
+    color: var(--white);
+    &:hover {
+      background: var(--gray-800);
+    }
+  }
+}

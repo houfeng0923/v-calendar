@@ -42,6 +42,7 @@
           v-model="date"
           :is-dark="isDark"
           :is-range="isRange"
+          :is24hr="true"
         />
       </div>
       <div>
